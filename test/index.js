@@ -1,35 +1,8 @@
-# jandi
-
-[Jandi](http://jandi.com) Node SDK for webhook.
-
-[![version](https://img.shields.io/npm/v/jandi.svg) ![download](https://img.shields.io/npm/dm/jandi.svg)](https://www.npmjs.com/package/jandi)
-
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
-## Install
-
-```
-npm install jandi
-```
-
-## Jandi Webhook Usage
-
-At first, you have to apply and copy `webhook url`
-
-![step1](res/img01.png)
-
-![step2](res/img02.png)
-
-![step3](res/img03.png)
-
-
-## Webhook usage
-
-```javascript
-var Jandi = require('jandi')
+var Jandi = require('../')
+var config = require('./config.json')
 
 var jandi = new Jandi()
-jandi.setWebhook(__webhookURL__)
+jandi.setWebhook(config.webhookUrl)
 
 jandi.webhook({
   body: '[MADSquare](http://madsquare.net) provides a new paradigm which is in line with the current mega-trend of increasing production and consumption of media, and blurring boundaries within platforms. Our goal is to quickly and easily deliver valuable media to users without classifying media based on genre, platform, and nationality.',
@@ -55,14 +28,3 @@ jandi.webhook({
 }, function (err) {
   console.error(err)
 })
-
-```
-
-## Result
-
-![result](res/result.png)
-
-
-## LICENSE
-
-jandi is licensed under the MIT license.
